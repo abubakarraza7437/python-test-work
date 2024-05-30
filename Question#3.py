@@ -2,6 +2,8 @@
 # function built in, but writing it yourself is nevertheless a good exercise.)
 
 #  For String
+import unittest
+
 
 def length_of_string(string):
     length = 0
@@ -13,13 +15,16 @@ def length_of_string(string):
 print(length_of_string("222"))
 
 
-# For List
+class TestCal(unittest.TestCase):
 
-def length_of_list(lis):
-    length = 0
-    for n in lis:
-        length += 1
-    return length
+    def test_length(self):
+        result = length_of_string("12345")
+        self.assertEqual(result, 5)
+
+    def test_length2(self):
+        result = length_of_string("abcdefgh")
+        self.assertEqual(result, 8)
 
 
-print(length_of_list([1, 5, 8, 9, 0, 10]))
+if __name__ == '__main__':
+    unittest.main()
