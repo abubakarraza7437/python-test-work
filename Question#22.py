@@ -26,11 +26,11 @@
 # Note that since English has 26 characters, your ROT13
 # program will be able to both encode and decode
 # texts written in English.
+import unittest
 
-alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-             'l', 'm', 'n', 'o', 'p',
-             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p','q', 'r', 's', 't',
+             'u', 'v', 'w', 'x', 'y', 'z']
 
 
 def encrypt(plain_text, shift_amount):
@@ -56,4 +56,19 @@ def decrypt(cipher_text, shift_amount):
     return f"The decoded text is {plain_text}."
 
 
-print(encrypt("mjqqt", 5))
+print(decrypt("mjqqt", 5))
+
+
+class TestCal(unittest.TestCase):
+
+    def test_1(self):
+        result = encrypt("hello", 5)
+        self.assertEqual(result, "The encoded text is mjqqt.")
+
+    def test_2(self):
+        result = decrypt("mjqqt", 5)
+        self.assertEqual(result, "The decoded text is hello.")
+
+
+if __name__ == "__main__":
+    unittest.main()

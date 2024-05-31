@@ -3,6 +3,8 @@
 # ate no basil", "Satan, oscillate my metallic sonatas", "I roamed under it as a tired nude Maori", "Rise to vote
 # sir", or the exclamation "Dammit, I'm mad!". Note that punctuation, capitalization, and spacing are usually
 # ignored.
+import unittest
+
 
 def palindrome_recognizer(phrase):
     phrase = phrase.lower()
@@ -15,3 +17,21 @@ def palindrome_recognizer(phrase):
 
 
 print(palindrome_recognizer("I roamed under it as a tired nude Maori"))
+
+
+class TestCal(unittest.TestCase):
+
+    def test_1(self):
+        result = palindrome_recognizer("I roamed under it as a tired nude Maori")
+        self.assertEqual(result, True)
+
+    def test_2(self):
+        result = palindrome_recognizer("Hi there I'm s developer")
+        self.assertEqual(result, False)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+

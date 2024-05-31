@@ -6,6 +6,8 @@
 # The same verse is repeated, each time with one fewer bottle. The song is completed when the singer or
 # singers reach zero.
 # Your task here is writing a Python program capable of generating all the verses of the song.
+import unittest
+
 
 def song_bottle_bear(remaining_num=None):
     print("99 bottles of beer on the wall, 99 bottles of beer.")
@@ -16,3 +18,5 @@ def song_bottle_bear(remaining_num=None):
 
 
 print(song_bottle_bear())
+
+# This program give a very large output.

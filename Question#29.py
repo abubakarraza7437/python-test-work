@@ -1,5 +1,6 @@
 # Using the higher order function filter(), define a function filter_long_words() that takes a list of words and an
 # integer n and returns the list of words that are longer than n.
+import unittest
 
 
 def filter_long_words(x, n):
@@ -7,14 +8,20 @@ def filter_long_words(x, n):
     return list_of_larger_words
 
 
-list_of_words = ["pakistan", "japan", "china", "india"]
+list_of_words = ["computer", "laptop", "bigdata", "datascience"]
 
 
-print(filter_long_words(["pakistan", "japan", "china", "india"], 6))
+print(filter_long_words(list_of_words, 10))
 
 
-def filter_long_word(x, n):
-    return list(filter(lambda word: len(word) > n, x))
+class TestLongWords(unittest.TestCase):
+
+    def test_long_word(self):
+        result1 = filter_long_words(["computer", "laptop", "bigdata", "datascience"], 10)
+        self.assertEqual(result1, ['datascience'])
+        result2 = filter_long_words(["python", "css", "html", "numpy"], 5)
+        self.assertEqual(result2, ["python"])
 
 
-print(filter_long_word(["pakistan", "japan", "china", "india"], 6))
+if __name__ == "__main__":
+    unittest.main()

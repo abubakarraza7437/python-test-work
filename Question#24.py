@@ -10,6 +10,9 @@
 # that the rules must be regarded as heuristic, in the sense that you must not expect them to work for all
 # cases. Tip: Check out the string method endswith()
 
+import unittest
+
+
 def make_3sg_form(verb):
     list_verb = list(verb)
     if verb.endswith("y"):
@@ -29,3 +32,16 @@ print(make_3sg_form("run"))
 print(make_3sg_form("fix"))
 
 
+class TestCal(unittest.TestCase):
+
+    def test_1(self):
+        result = make_3sg_form("try")
+        self.assertEqual(result, "tries")
+
+    def test_2(self):
+        result = make_3sg_form("brush")
+        self.assertEqual(result, "brushes")
+
+
+if __name__ == "__main__":
+    unittest.main()
